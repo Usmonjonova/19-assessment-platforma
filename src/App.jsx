@@ -1,9 +1,41 @@
-import './App.css';
+import React from "react";
+import Header from "./components/Header/Header";
+import KnowledgeTest from "./components/KnowledgeTest/KnowledgeTest";
+import Traits from "./components/Traits/Traits";
+import Diagnostics from "./components/Diagnostics/Diagnostics";
+import Competency from "./components/Competency/Competency";
+import Footer from "./components/Footer/Footer";
+import "./App";
 
-function App() {
+const App = () => {
+
+  const traits = [
+    { name: "Maqsadga intiluvchanlik", value: 90 },
+    { name: "Emotsional intellekt", value: 95 },
+    { name: "Kreativlik", value: 75 },
+    { name: "Jamoa bilan ishlash", value: 86 },
+  ];
+
+  const competencies = [
+    { name: "Strategik fikrlash", value: 85 },
+    { name: "Natijaga yo'naltirish", value: 75 },
+    { name: "O'z-o'zini rivojlantirish", value: 98 },
+    { name: "Kommunikativlik", value: 45 },
+  ];
+
+  const description =
+    "Lorem ipsum is simply dummy text of the printing and typesetting industry.";
+
   return (
-    <div></div>
+    <div className="main-page">
+      <Header />
+      <KnowledgeTest />
+      <Traits traits={traits} />
+      <Diagnostics description={description} />
+      <Competency competencies={competencies} />
+      <Footer />
+    </div>
   );
-}
+};
 
 export default App;
