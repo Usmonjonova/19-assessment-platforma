@@ -9,24 +9,13 @@ import "./App";
 
 const App = () => {
 
-  const competencies = [
-    { name: "Strategik fikrlash", value: 85 },
-    { name: "Natijaga yo'naltirish", value: 75 },
-    { name: "O'z-o'zini rivojlantirish", value: 98 },
-    { name: "Kommunikativlik", value: 45 },
-  ];
-
-  const description =
-    "Lorem ipsum is simply dummy text of the printing and typesetting industry.";
-    
-
   return (
     <div className="main-page">
       <Header />
       <KnowledgeTest />
       <Traits />
-      <Diagnostics description={description} />
-      <Competency competencies={competencies} />
+      <Diagnostics  />
+      <Competency  />
       <Footer />
     </div>
   );
