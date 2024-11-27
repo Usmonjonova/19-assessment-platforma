@@ -7,16 +7,6 @@ const Header = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { data, loading, error } = useFetch(`${apiUrl}/get-personal-info`);
 
-    if (loading) {
-        console.log("Loading data...");
-    }
-
-    if (error) {
-        console.log("Error fetching data:", error);
-    }
-
-    console.log(data);
-
     return (
         <header className="header container px-4 py-8 dark:bg-dark-bg">
             <div className="header__title-icon flex justify-between items-center mb-[35px]">
