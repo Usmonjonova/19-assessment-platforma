@@ -2,61 +2,87 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import useFetch from '../hooks/useFetch';
 
-const LineChart = () => {
+const ApexChart = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { data, loading, error } = useFetch(`${apiUrl}/knowlodge`);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const chartData = React.useMemo(() => {
+        if (loading || error || !data?.lineChart) {
+            return {
+                series: [
+                    {
+                        name: 'Desktops',
+                        data: [],
+                    },
+                ],
+                options: {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        zoom: {
+                            enabled: false,
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false,
+                    },
+                    stroke: {
+                        curve: 'straight',
+                    },
+                    grid: {
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'],
+                            opacity: 0.5,
+                        },
+                    },
+                    xaxis: {
+                        categories: [],
+                    },
+                },
+            };
+        }
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
-
-    const chartOptions = {
-        chart: {
-            height: 350,
-            type: 'line',
-            zoom: { enabled: false },
-        },
-        title: {
-            text: 'Product Trends by Date',
-            align: 'left',
-        },
-        dataLabels: { enabled: false },
-        stroke: { curve: 'smooth' },
-        xaxis: {
-            categories: data?.LineChart?.labels || [], 
-        },
-        grid: {
-            row: {
-                colors: ['#f3f3f3', 'transparent'],
-                opacity: 0.5,
+        return {
+            series: [
+                {
+                    name: 'API Data',
+                    data: data.lineChart.data,
+                },
+            ],
+            options: {
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    zoom: {
+                        enabled: false,
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                stroke: {
+                    curve: 'straight',
+                },
+                grid: {
+                    row: {
+                        colors: ['#f3f3f3', 'transparent'],
+                        opacity: 0.5,
+                    },
+                },
+                xaxis: {
+                    categories: data.lineChart.labels,
+                },
             },
-        },
-    };
-
-    const chartSeries = [
-        {
-            name: 'Data Trend',
-            data: data?.LineChart?.data || [], 
-        },
-    ];
+        };
+    }, [data, loading, error]);
 
     return (
-        <div className="">
-            <div className="chart-wrapper">
-                <ReactApexChart
-                    options={chartOptions}
-                    series={chartSeries}
-                    type="line"
-                    height={350}
-                />
-                <div className="text-base text-[#495057] text-center">Line Chart Example</div>
+        <div>
+            <div id="chart">
+                <ReactApexChart options={chartData.options} series={chartData.series} type="line" height={200} />
             </div>
         </div>
     );
 };
 
-export default LineChart;
+export default ApexChart;
