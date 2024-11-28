@@ -126,3 +126,13 @@ body, * {
   /* Semi Bold Italic */
   font-style: italic;
 }
+
+.apexcharts-datalabels-group text {
+   color: rgb(0, 0, 0);
+  font-family: "Rubik", sans-serif !important;
+font-size: 28px;
+font-weight: 600;
+line-height: 120%;
+letter-spacing: 0%;
+text-align: center;
+}

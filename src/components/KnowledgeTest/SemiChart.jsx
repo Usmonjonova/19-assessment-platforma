@@ -1,5 +1,6 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import '../../App.css'
 
 const SemiChart = ({ data }) => {
     if (!data?.semicharts || data.semicharts.length === 0) {
@@ -42,15 +43,6 @@ const SemiChart = ({ data }) => {
                             },
                         },
                         fill: {
-                            type: "gradient",
-                            gradient: {
-                                shade: "light",
-                                shadeIntensity: 0.4,
-                                inverseColors: false,
-                                opacityFrom: 1,
-                                opacityTo: 1,
-                                stops: [0, 50, 53, 91],
-                            },
                             colors: [semiChart.color],
                         },
                         labels: [semiChart.label || "Result"],

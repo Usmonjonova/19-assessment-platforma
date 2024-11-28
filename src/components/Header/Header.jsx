@@ -2,6 +2,7 @@ import React from "react";
 import humo from '../../assets/images/humo-icon.svg'
 import useFetch from "../../hooks/useFetch";
 import "../../App.css"
+import norma from '../../assets/images/norma-header.svg'
 
 const Header = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
@@ -10,12 +11,12 @@ const Header = () => {
     return (
         <header className="header container px-4 py-8 dark:bg-dark-bg">
             <div className="header__title-icon flex justify-between items-center mb-[35px]">
-                <div className="header__logo text-center max-w-[180px] w-full flex items-center flex-col">
+                <div className="header__logo text-center max-w-[200px] w-full flex items-center flex-col">
                     <img src={humo} alt="humo-icon" className="header__logo-img w-[96px] " />
-                    <h3 className="header__logo-title text-gray-800 text-sm font-semibold leading-snug uppercase">Давлат хизматининг ягона электрон ахборот-таҳлил тизими</h3>
+                    <h3 className="header__logo-title text-gray-800 mt-[10px] text-[14px] leading-[120%] font-semibold uppercase">Давлат хизматининг ягона электрон ахборот-таҳлил тизими</h3>
                 </div>
-                <h2 className="header__title text-gray-800 dark:text-white text-3xl font-semibold text-center max-w-[530px] w-full">Республика Ассессмент маркази онлайн платформаси</h2>
-                <h1 className="header__number text-blue-700 font-semibold text-6xl leading-snug">78</h1>
+                <h2 className="header__title text-gray-800 dark:text-white text-[32px] leading-[120%] font-semibold text-center max-w-[644px] w-full">Республика Ассессмент маркази онлайн платформаси</h2>
+                <h1 className="header__number relative text-blue-700 font-semibold text-7xl leading-[120%] after:content-['◥'] before:content-['₂'] before:absolute before:text-[54px] before:right-[-52px] before:top-[-42px] before:text-[#28A264] after:text-[22px] after:text-[#28A264] after:rotate-[-45deg] after:top-5 after:left-24 after:leading-[9px] after:absolute ">78</h1>
             </div>
             <div className="header__info flex gap-5 justify-between">
                 {data && (
@@ -32,6 +33,7 @@ const Header = () => {
                                     <p className="header__info-height text-lg text-[rgb(0, 0, 0)] font-normal">Буйи: <br /> <span className="font-medium">{data.height}</span></p>
                                     <p className="header__info-weight text-lg text-[rgb(0, 0, 0)] font-normal">Вазни: <br /> <span className="font-medium">{data.weight}</span></p>
                                     <p className="header__info-index text-lg text-[rgb(0, 0, 0)] font-normal">Индекс: <br /> <span className="font-medium">{data.index}</span></p>
+                                    <img src={norma} alt="norma" />
                                 </div>
                             </div>
                         </div>

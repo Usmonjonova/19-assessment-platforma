@@ -2,7 +2,7 @@ import React from "react";
 import "./KnowledgeTest.css";
 import "../../App.css";
 import useFetch from "../../hooks/useFetch";
-import SemiChart from "../SemiChart";
+import SemiChart from "./SemiChart";
 import LineChart from "../LineChart";
 import ProgressBar from "../ProgressBar"; 
 import brain from '../../assets/images/brain.svg'
